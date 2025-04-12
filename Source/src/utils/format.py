@@ -11,8 +11,3 @@ def byte_convert(num: float) -> str:
         num /= 1024.0
 
     return f"{num:.2f} PB"
-
-
-def prettify_output(output: list[list[str]]):
-    if output:
-        [print(" ".join(x)) for x in output]

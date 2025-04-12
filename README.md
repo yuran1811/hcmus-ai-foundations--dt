@@ -13,4 +13,4 @@
 
 ## Tech Stack
 
-<img src="https://skill-icons-livid.vercel.app/icons?i=py,latex&gap=60" height="36" />
+<img src="https://skill-icons-livid.vercel.app/icons?i=sklearn,jupyter,py,latex&gap=60" height="36" />
