@@ -1,5 +1,5 @@
 [project]
-name = "decition-tree"
+name = "decision-tree"
 version = "0.1.0"
 description = "HCMUS AI Foundations -- Decision Tree"
 authors = [
