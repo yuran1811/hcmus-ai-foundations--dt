@@ -8,4 +8,5 @@ FIG_DIR = os.path.join(ROOT_DIR.replace(os.path.basename(ROOT_DIR), ""), "Report
 
 DATA_WDBC = "../data/wdbc.csv"
 DATA_WINE = "../data/winequality-white.csv"
-DATA_CARS = "https://archive.ics.uci.edu/ml/machine-learning-databases/car/car.data"
+# DATA_CARS = "https://archive.ics.uci.edu/dataset/19/car+evaluation"
+DATA_CARS = "../data/car+evaluation/car.csv"
