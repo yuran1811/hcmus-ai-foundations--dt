@@ -1,0 +1,32 @@
+\section{Comparative Analysis}
+
+\begin{itemize}
+	\item \textbf{Objective:} Compare Decision Tree performance across:
+	      \begin{enumerate}
+		      \item Breast Cancer (binary classification, continuous features)
+		      \item Wine Quality (multi-class, numerical features)
+		      \item Car Evaluation (multi-class, categorical features)
+	      \end{enumerate}
+
+	\item \textbf{Comparison Criteria:}
+	      \begin{itemize}
+		      \item Accuracy, Precision, Recall, F1-Score
+		      \item Effect of feature type and count
+		      \item Class distribution and balance
+		      \item Impact of \texttt{max\_depth} on overfitting
+	      \end{itemize}
+
+	\item \textbf{Observations:}
+	      \begin{itemize}
+		      \item \textbf{Breast Cancer:} Highest accuracy; binary labels and well-separated numeric features helped model performance.
+		      \item \textbf{Wine Quality:} Lower precision for middle-quality wines; overlapping features across quality groups reduced clarity.
+		      \item \textbf{Car Evaluation:} Performed well despite 4 classes; decision tree easily handled categorical data. Slight overfitting observed at deep trees.
+	      \end{itemize}
+
+	\item \textbf{Conclusion:}
+	      \begin{itemize}
+		      \item Decision Trees adapt well to both categorical and numerical data, but class imbalance and feature overlap affect performance.
+		      \item Simpler datasets with clear boundaries (like Breast Cancer or Car Evaluation) yield higher accuracy.
+		      \item Proper depth tuning is essential to maintain generalization.
+	      \end{itemize}
+\end{itemize}

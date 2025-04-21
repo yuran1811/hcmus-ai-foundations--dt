@@ -11,6 +11,8 @@
 \usepackage{fancyhdr,tocbasic,titlesec,minted,listings}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
+\usepackage{float}
+
 
 \renewcommand{\thesection}{\arabic{section}}
 
@@ -32,7 +34,7 @@
 \pagestyle{fancy}
 \setlength{\headheight}{18pt}
 \fancyhf{}
-\fancyhead[R]{\nouppercase\rightmark\hfill~Project 02: Hashiwokakero}
+\fancyhead[R]{\nouppercase\rightmark\hfill~Project 03: Decision Tree}
 \fancyfoot[C]{\hfill\thepage\hfill}
 
 % TOC styling
@@ -42,7 +44,7 @@
 ]{largetocline}{section}
 
 % Title page data
-\title{Project 02: Hashiwokakero}
+\title{Project 03: Decision Tree}
 \author{\begin{tabular}{r c}
   Ngo Nguyen The Khoa & 23127065\\
   Bui Minh Duy       & 23127040\\
@@ -67,23 +69,15 @@
 \input{pages/Evaluation.tex}
 
 \pagebreak
-\input{pages/CNF.tex}
-
-\pagebreak
-\section{Algorithms' Implementations}
-\input{pages/PySAT.tex}
-\input{pages/Astar.tex}
-\input{pages/Backtracking.tex}
-\input{pages/Brute.tex}
-
-\pagebreak
-\input{pages/Benchmark.tex}
+\input{pages/Experiments.tex}
+\input{pages/Comparation.tex}
 
 % References
 \pagebreak
 \section{References}
 \begin{enumerate}
-  \item \href{https://www.hashi.info/how-to-solve}{Hashi Info}: How to solve Hashiwokakero puzzles successfully (for human players)
-  \item \href{https://en.wikipedia.org/wiki/Tseytin_transformation}{Tseytin Transformation}: About generating CNF clauses from DNF
+  \item \href{https://scikit-learn.org/stable/modules/generated/sklearn.tree.DecisionTreeClassifier.html}{DecisionTreeClassifier Documentation}
+  \item \href{https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_breast_cancer.html}{Breast Cancer Dataset}
+  \item \href{https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_wine.html}{Wine Quality Dataset}
 \end{enumerate}
 \end{document}
