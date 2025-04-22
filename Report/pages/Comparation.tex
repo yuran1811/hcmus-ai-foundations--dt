@@ -44,9 +44,9 @@ After evaluating decision tree performance on all three datasets, we examine how
 	\item \textbf{Small sample (569):}
 	      Breast Cancer’s smaller size produced high variance at extreme splits (e.g.\ 90/10), but stratified sampling kept accuracy within 2–3 pp across ratios.
 	\item \textbf{Large sample (4,898):}
-	      Wine Quality’s larger sample stabilized performance: accuracy varied by only ~5 pp between smallest and largest training sets.
+	      Wine Quality’s larger sample stabilized performance: accuracy varied by only $\sim$5 pp between smallest and largest training sets.
 	\item \textbf{Medium sample (1,728):}
-	      Car Evaluation sat between the two: accuracy varied <5 pp across splits, indicating diminishing returns once a “critical mass” of examples is reached.
+	      Car Evaluation sat between the two: accuracy varied \(<5\) pp across splits, indicating diminishing returns once a “critical mass” of examples is reached.
 	\item \textbf{Lesson:}
 	      Larger sample sizes increase metric stability and reduce sensitivity to train/test ratio, but only until class overlap—not data scarcity—becomes the limiting factor.
 \end{itemize}
