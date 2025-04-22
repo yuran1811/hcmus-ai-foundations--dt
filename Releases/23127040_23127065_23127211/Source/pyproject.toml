@@ -1,0 +1,44 @@
+[project]
+name = "decision-tree"
+version = "0.1.0"
+description = "HCMUS AI Foundations -- Decision Tree"
+authors = [
+    { name = "yuran1811", email = "trieuvanbd123@gmail.com" },
+    { name = "KhoaNguyen-HCMUS", email = "anhkhoa515.dev@gmail.com" },
+    { name = "callmezuy", email = "bmduy23@clc.fitus.edu.vn" },
+]
+readme = "../README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+classifiers = ["Private :: Do Not Upload"]
+dependencies = [
+    "graphviz>=0.20.3",
+    "ipykernel>=6.29.5",
+    "matplotlib>=3.10.1",
+    "pandas>=2.2.3",
+    "scikit-learn>=1.6.1",
+    "seaborn>=0.13.2",
+]
+
+[project.scripts]
+"main" = "dt:main"
+
+
+[dependency-groups]
+lint = ["ruff>=0.11.2"]
+
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+
+[tool.ruff.lint]
+extend-select = ["W", "E"]
+ignore = ["E501"]
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/dt"]
