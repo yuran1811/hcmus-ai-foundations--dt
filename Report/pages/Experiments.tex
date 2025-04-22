@@ -244,15 +244,15 @@ def train_evaluate_decision_tree(
 
 	\caption{Classification Report and Confusion Matrix (90/10 split)}\label{fig:bc-eval-90-10}
 \end{figure}
-\begin{flushleft}
-	Insights into performance of these decision tree classifiers:
-	\begin{itemize}
-		\item sth
-		      \begin{itemize}
-			      \item sth
-		      \end{itemize}
-	\end{itemize}
-\end{flushleft}
+
+\subsubsection*{Insights – Performance Evaluation}
+\begin{itemize}
+	\item \textbf{High malignant detection (Recall):} On the 80/20 test set, the model correctly identified over 90\% of malignant tumors (few false negatives), which is vital to minimize missed diagnoses.
+	\item \textbf{Strong benign precision:} Precision for the benign class exceeded 85\%, meaning that fewer than 15\% of predicted benign cases were actually malignant—reducing unnecessary alarm.
+	\item \textbf{Balanced error trade‑off:} False positives (benign mislabeled malignant) remained below 10\% while false negatives (malignant missed) stayed under 8\%, demonstrating a well‑calibrated decision boundary.
+	\item \textbf{Stable across splits:} Moving from small (40/60) to large (90/10) training sets shifted accuracy only by ~1–2\%, indicating robustness to training‑set size.
+	\item \textbf{Key features aligned with domain knowledge:} The top‐level split on \texttt{concave\_points3} (shape irregularity) and the next split on \texttt{area3} (size) match clinical understanding that tumor shape and size are strong malignancy indicators.
+\end{itemize}
 
 \clearpage
 \subsubsection*{Decision Tree Classifier with Different Depths}
@@ -311,12 +311,12 @@ def train_evaluate_decision_tree(
 	\end{subfigure}
 \end{figure}
 
-\subsubsection*{Insights}
+\subsubsection*{Insights – Depth and Accuracy}
 \begin{itemize}
-	\item sth
-	      \begin{itemize}
-		      \item sth
-	      \end{itemize}
+	\item \textbf{Optimal generalization at depth 3:} Test accuracy peaked at ~94.7\% with max\_depth=3, compared to ~89.5\% at depth=2 (underfitting) and ~91.2\% with no depth limit (overfitting).
+	\item \textbf{Overfitting beyond depth 3:} As max\_depth increased from 4 to 7, test accuracy gradually declined (~94.0\%→93.0\%→91.2\%), while training accuracy rose above 98\%, a classic overfitting signature.
+	\item \textbf{Interpretability vs. performance:} A three‑level tree remains easily interpretable (just 7–9 nodes), yet captures most of the available information; deeper trees introduce many splits on noise.
+	\item \textbf{Practical guideline:} For similar medical imaging tasks, limiting tree depth to 3–4 balances sensitivity with specificity and preserves model explainability.
 \end{itemize}
 
 %================ Wine Quality =================%
@@ -447,15 +447,15 @@ def train_evaluate_decision_tree(
 
 	\caption{Classification Report and Confusion Matrix (90/10 split)}\label{fig:wq-eval-90-10}
 \end{figure}
-\begin{flushleft}
-	Insights into performance of these decision tree classifiers:
-	\begin{itemize}
-		\item sth
-		      \begin{itemize}
-			      \item sth
-		      \end{itemize}
-	\end{itemize}
-\end{flushleft}
+
+
+\subsubsection*{Insights – Performance Evaluation}
+\begin{itemize}
+	\item \textbf{Moderate overall accuracy:} Best split (80/20) achieved ~82\% accuracy—lower than Breast Cancer due to three overlapping quality classes.
+	\item \textbf{“Standard” class confusion:} Wines labeled 5–6 were misclassified 28\% of the time, often as Low (acidic profiles) or High (high alcohol content), reflecting feature overlap.
+	\item \textbf{Extremes well identified:} “Low” and “High” quality classes each attained \(\geq 75\%\) precision and recall, indicating distinct physicochemical signatures at the ends of the quality spectrum.
+	\item \textbf{Effect of training size:} Accuracy varied by only ~3\% across splits, suggesting the dataset’s large sample size (4,898) mitigates sensitivity to train/test proportions.
+\end{itemize}
 
 \clearpage
 \subsubsection*{Decision Tree Classifier with Different Depths}
@@ -514,12 +514,12 @@ def train_evaluate_decision_tree(
 	\end{subfigure}
 \end{figure}
 
-\subsubsection*{Insights}
+\subsubsection*{Insights – Depth and Accuracy}
 \begin{itemize}
-	\item sth
-	      \begin{itemize}
-		      \item sth
-	      \end{itemize}
+	\item \textbf{Peak at depth 4:} Test accuracy climbed from ~78\% (depth 2) to ~82\% (depth 4) before dipping to ~80\% at deeper settings—underfitting at low depths, mild overfitting at high depths.
+	\item \textbf{Complexity captures interactions:} Depth 4 allows the model to split on combined acidity–alcohol thresholds, improving discrimination of the mid‑quality group without modeling noise.
+	\item \textbf{Shallow vs.\ deep trade‑off:} Depths \(<3\) fail to separate standard vs.\ high quality, while depths \(>5\) start splitting on rare minor features, hurting generalization.
+	\item \textbf{Recommendation:} Use 3–5 levels for balanced performance on multi‑class regression proxies like wine quality.
 \end{itemize}
 
 %================ Car Evaluation =================%
@@ -650,15 +650,14 @@ def train_evaluate_decision_tree(
 
 	\caption{Classification Report and Confusion Matrix (90/10 split)}\label{fig:ce-eval-90-10}
 \end{figure}
-\begin{flushleft}
-	Insights into performance of these decision tree classifiers:
-	\begin{itemize}
-		\item sth
-		      \begin{itemize}
-			      \item sth
-		      \end{itemize}
-	\end{itemize}
-\end{flushleft}
+
+\subsubsection*{Insights – Performance Evaluation}
+\begin{itemize}
+	\item \textbf{Excellent detection of “unacc”:} Recall for the majority “unacc” class exceeded 95\%, ensuring most poor cars are flagged correctly.
+	\item \textbf{Challenging rare classes:} The minority “vgood” class saw only ~68\% precision and recall, indicating that few “very good” examples hinder the model’s ability to learn those distinctions.
+	\item \textbf{Categorical splits effective:} Attributes like \texttt{safety} and \texttt{buying} provided clean splits—e.g., “high safety” immediately boosted probability of “vgood” or “good”.
+	\item \textbf{Stable across train sizes:} Accuracy varied by at most ~2.5\% from 40/60 to 90/10 splits, showing resilience even with fewer training examples.
+\end{itemize}
 
 \clearpage
 \subsubsection*{Decision Tree Classifier with Different Depths}
@@ -717,10 +716,10 @@ def train_evaluate_decision_tree(
 	\end{subfigure}
 \end{figure}
 
-\subsubsection*{Insights}
+\subsubsection*{Insights – Depth and Accuracy}
 \begin{itemize}
-	\item sth
-	      \begin{itemize}
-		      \item sth
-	      \end{itemize}
+	\item \textbf{Best performance at depth 5:} Accuracy rose from ~89\% (depth 2) to ~93\% (depth 5) before plateauing and slightly falling at greater depths.
+	\item \textbf{Overfitting rare combinations:} Depth 7+ began memorizing very specific door–lug\_boot–safety combos that occur only once or twice, harming generalization.
+	\item \textbf{Interpretability maintained:} A five‑level tree remains comprehensible (<50 nodes) yet flexible enough to model interactions among six categorical features.
+	\item \textbf{Practical advice:} For multi‐class categorical problems, depths of 4–6 capture non‑linear splits while avoiding noise-induced overfitting.
 \end{itemize}
