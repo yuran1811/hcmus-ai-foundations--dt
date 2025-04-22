@@ -1,47 +1,60 @@
 \pagebreak
 \section{Comparative Analysis}
 
-After completing the experiments on all three datasets, we now examine how key dataset characteristics—number of classes, number of features, and sample size—influence the decision tree’s performance (accuracy, precision, recall, F\textsubscript{1}-score).
+After evaluating decision tree performance on all three datasets, we examine how key dataset characteristics—number of classes, number of features, and sample size—influence model metrics (accuracy, precision, recall, F\textsubscript{1}-score).
 
 \subsection{Summary of Best Test Accuracies}
 \begin{center}
+	\renewcommand{\arraystretch}{1.2}
 	\begin{tabular}{|l|c|c|c|}
 		\hline
 		\textbf{Dataset}        & \textbf{Classes} & \textbf{Features} & \textbf{Best Accuracy (\%)} \\\hline
-		Breast Cancer Wisconsin & 2                & 30                & 94.7 (depth=3)              \\\hline
-		Wine Quality            & 3                & 11                & 82.1 (depth=4)              \\\hline
-		Car Evaluation          & 4                & 6                 & 93.2 (depth=5)              \\\hline
+		Breast Cancer Wisconsin & 2                & 30                & 94.74 (depth=3)             \\\hline
+		Wine Quality            & 3                & 11                & 78.78 (depth=7)             \\\hline
+		Car Evaluation          & 4                & 6                 & 99.13 (depth=None)          \\\hline
 	\end{tabular}
 \end{center}
 
 \subsection{Impact of Number of Classes}
 \begin{itemize}
-	\item \textbf{Binary vs.\ multi-class:} The binary Breast Cancer dataset achieved the highest accuracy (94.7\%)—with only two labels, the decision boundary is simpler, and the tree makes fewer risky splits.
-	\item \textbf{Three classes (Wine):} Introducing a third “Standard” quality group dropped accuracy by $\sim$12 percentage points. The model struggled most on the middle class (recall $\approx$72\%), reflecting overlapping physicochemical profiles.
-	\item \textbf{Four classes (Car):} Although there are four target categories, Car Evaluation still attained 93.2\%. This is because its categorical features (e.g.\ safety, buying price) yield clear, non‑overlapping splits even with more classes.
-	\item \textbf{Lesson:} As the number of classes increases, accuracy typically decreases, but well‑separable feature sets can mitigate this effect.
+	\item \textbf{Binary vs.\ multi-class:}
+	      The binary Breast Cancer dataset achieved the highest accuracy (94.74\%); only two labels result in simpler decision boundaries.
+	\item \textbf{Three classes (Wine Quality):}
+	      Introducing “Low,” “Standard,” and “High” quality classes reduced peak accuracy by \(\approx16\) pp compared to binary, due to overlapping physicochemical profiles.
+	\item \textbf{Four classes (Car Evaluation):}
+	      Despite four target categories, Car Evaluation attained 99.13\% because its categorical attributes produce very clear splits for each class.
+	\item \textbf{Lesson:}
+	      Accuracy generally decreases as class count increases, but well–separable features can offset this effect.
 \end{itemize}
 
 \subsection{Impact of Number of Features}
 \begin{itemize}
-	\item \textbf{High-dimensional (30 features):} Breast Cancer’s thirty numeric features provided rich information; top splits on \texttt{concave\_points3} and \texttt{area3} drove performance. However, deeper trees began to overfit on less informative dimensions.
-	\item \textbf{Medium-dimensional (11 features):} Wine Quality’s eleven continuous features sufficed to reach $\sim$82\% accuracy, but more subtle interactions (acidity vs.\ alcohol) required moderate tree depth (4) to capture without over‑splitting.
-	\item \textbf{Low-dimensional (6 features):} Car Evaluation used only six categorical attributes; yet it achieved >93\% because each feature conveys high‑level, discrete decisions (e.g.\ “high safety” $\to$ “vgood”).
-	\item \textbf{Lesson:} More features can improve performance only if they carry discriminative power; categorical features with few levels may outperform many noisy numeric features.
+	\item \textbf{High dimensionality (30 features):}
+	      Breast Cancer’s 30 numeric features provided rich discriminative power; however, deeper trees began to overfit on less informative dimensions.
+	\item \textbf{Medium dimensionality (11 features):}
+	      Wine Quality’s 11 continuous features sufficed to reach $\sim$79\% accuracy but required deeper trees (depth 7) to capture complex interactions (e.g.\ acidity vs.\ alcohol).
+	\item \textbf{Low dimensionality (6 features):}
+	      Car Evaluation’s six categorical attributes yielded \(>99\%\) accuracy, showing that a small number of highly informative categorical features can outperform larger numeric feature sets.
+	\item \textbf{Lesson:}
+	      More features improve performance only if they carry meaningful signal; high‑level categorical features may be more effective than many noisy numeric ones.
 \end{itemize}
 
 \subsection{Impact of Sample Size}
 \begin{itemize}
-	\item \textbf{Small sample (569):} Breast Cancer’s relatively small dataset gave high variance in deep trees, but stratified splits yielded stable accuracy within 1–2\% across different train/test ratios.
-	\item \textbf{Large sample (4,898):} Wine Quality’s larger sample smoothed out random fluctuations: accuracy varied by only $\sim$3\% when moving from 40/60 to 90/10 splits.
-	\item \textbf{Medium sample (1,728):} Car Evaluation sat between the two: test accuracy varied by <2\% across splits, showing that once a minimum “critical mass” of samples is reached, additional examples yield diminishing returns.
-	\item \textbf{Lesson:} Larger sample sizes improve the stability of performance metrics and reduce sensitivity to train/test partitioning, but only up to the point where class overlap—not sample scarcity—becomes the dominant error source.
+	\item \textbf{Small sample (569):}
+	      Breast Cancer’s smaller size produced high variance at extreme splits (e.g.\ 90/10), but stratified sampling kept accuracy within 2–3 pp across ratios.
+	\item \textbf{Large sample (4,898):}
+	      Wine Quality’s larger sample stabilized performance: accuracy varied by only ~5 pp between smallest and largest training sets.
+	\item \textbf{Medium sample (1,728):}
+	      Car Evaluation sat between the two: accuracy varied <5 pp across splits, indicating diminishing returns once a “critical mass” of examples is reached.
+	\item \textbf{Lesson:}
+	      Larger sample sizes increase metric stability and reduce sensitivity to train/test ratio, but only until class overlap—not data scarcity—becomes the limiting factor.
 \end{itemize}
 
 \subsection{Overall Recommendations}
 \begin{itemize}
-	\item For \textbf{binary problems} with high-dimensional numeric features, shallow trees (depth 2–4) maximize generalization and interpretability.
-	\item For \textbf{multi-class problems}, ensure clear feature separability or consider feature engineering to reduce class overlap before relying on deeper trees.
-	\item When \textbf{categorical features} are inherently discriminative, even low-dimensional datasets can yield high accuracy with moderate tree depth.
-	\item Always \textbf{tune max\_depth} via cross‑validation: our experiments showed optimal depths of 3 (Breast Cancer), 4 (Wine Quality), and 5 (Car Evaluation) struck the best trade‑off between bias and variance.
+	\item For \textbf{binary problems} with many numeric features, limit tree depth to 3–4 to maximize generalization and interpretability.
+	\item For \textbf{multi-class problems}, ensure features are well separated or apply feature engineering before using deep trees.
+	\item When using \textbf{categorical features}, even low-dimensional datasets can achieve high accuracy with moderate depth.
+	\item Always \textbf{tune \texttt{max\_depth}} via cross-validation: our experiments found optimal depths of 3 (Breast Cancer), 7 (Wine Quality), and unlimited (Car Evaluation), balancing bias–variance and model complexity.
 \end{itemize}
