@@ -70,14 +70,13 @@ def train_evaluate_decision_tree(
 	\end{itemize}
 \end{flushleft}
 
-\subsection{Classification Report and Confusion Matrix Interpretion}
 \begin{flushleft}
 	\begin{itemize}
 		\item The classification report summarizes, for each class \(c\):
 		      \begin{itemize}
 			      \item \textbf{Precision} (\(\mathrm{Prec}_c\)): measures the fraction of samples predicted as \(c\) that truly belong to \(c\).
 			      \item \textbf{Recall} (\(\mathrm{Rec}_c\)): measures the fraction of true-\(c\) samples correctly identified.
-			      \item \textbf{F1‑score} (\(\mathrm{F1}_c\)): the harmonic mean of precision and recall
+			      \item \textbf{F1-score} (\(\mathrm{F1}_c\)): the harmonic mean of precision and recall
 			      \item \textbf{Support}: the number of true samples of class \(c\).
 		      \end{itemize}
 		\item For example, with a binary problem (classes “positive”/“negative”), the confusion matrix is:
@@ -246,7 +245,7 @@ def train_evaluate_decision_tree(
 	\caption{Classification Report and Confusion Matrix (90/10 split)}\label{fig:bc-eval-90-10}
 \end{figure}
 
-\subsubsection*{Insights – Performance Evaluation}
+\subsubsection*{Insights - Performance Evaluation}
 \begin{itemize}
 	\item \textbf{Accuracy by split ratio:}
 	      \begin{itemize}
@@ -254,16 +253,16 @@ def train_evaluate_decision_tree(
 		      \item 40/60 and 80/20 splits both reached \textbf{91\%}.
 		      \item 90/10 dropped to \textbf{88\%}, showing increased variance with a very small test set.
 	      \end{itemize}
-	\item \textbf{Class‑level performance:}
+	\item \textbf{Class-level performance:}
 	      \begin{itemize}
-		      \item \emph{Malignant (class 0):}
+		      \item \emph{Malignant (class 0):}
 		            \begin{itemize}
 			            \item Precision ranged from 0.86 (40/60) → 0.90 (60/40) → 0.83 (80/20) → 0.77 (90/10).
 			            \item Recall stayed high (0.91, 0.93, 0.95, 0.95), ensuring most malignant tumors are detected.
 		            \end{itemize}
-		      \item \emph{Benign (class 1):}
+		      \item \emph{Benign (class 1):}
 		            \begin{itemize}
-			            \item Precision consistently excellent (0.95–0.97), meaning very few benign cases are mislabeled malignant.
+			            \item Precision consistently excellent (0.95-0.97), meaning very few benign cases are mislabeled malignant.
 			            \item Recall varied from 0.91 (40/60), 0.94 (60/40), 0.89 (80/20) to 0.83 (90/10), indicating some benign samples get misclassified when test size shrinks.
 		            \end{itemize}
 	      \end{itemize}
@@ -332,25 +331,25 @@ def train_evaluate_decision_tree(
 	\end{subfigure}
 \end{figure}
 
-\subsubsection*{Insights – Depth and Accuracy}
+\subsubsection*{Insights - Depth and Accuracy}
 \begin{itemize}
 	\item \textbf{Underfitting at low depth:}
 	      \texttt{max\_depth}=2 yields only \textbf{89.47\%} accuracy—too shallow to capture key interactions.
 	\item \textbf{Optimal depth = 3:}
 	      \begin{itemize}
-		      \item Peaks at \textbf{94.74\%} ($\sim$5 pp gain over depth 2).
-		      \item Balances bias/variance, capturing non‑linear splits without overfitting.
+		      \item Peaks at \textbf{94.74\%} ($\sim$5 pp gain over depth 2).
+		      \item Balances bias/variance, capturing non-linear splits without overfitting.
 	      \end{itemize}
 	\item \textbf{Gradual overfitting beyond 3:}
 	      \begin{itemize}
-		      \item Depth 4: 93.86\%
-		      \item Depth 5: 92.98\%
-		      \item Depth 6, 7, None: all 91.23\%, matching the very deep tree but with far more complexity.
+		      \item Depth 4: 93.86\%
+		      \item Depth 5: 92.98\%
+		      \item Depth 6, 7, None: all 91.23\%, matching the very deep tree but with far more complexity.
 	      \end{itemize}
-	\item \textbf{Interpretability trade‑off:}
-	      A 3‑level tree has under 10 nodes—easy to explain—while delivering maximum generalization.
+	\item \textbf{Interpretability trade-off:}
+	      A 3-level tree has under 10 nodes—easy to explain—while delivering maximum generalization.
 	\item \textbf{Recommendation:}
-	      Limit \texttt{max\_depth} to \textbf{3–4} for this dataset to sustain high accuracy, control overfitting, and preserve model simplicity.
+	      Limit \texttt{max\_depth} to \textbf{3-4} for this dataset to sustain high accuracy, control overfitting, and preserve model simplicity.
 \end{itemize}
 
 %================ Wine Quality =================%
@@ -483,19 +482,19 @@ def train_evaluate_decision_tree(
 \end{figure}
 
 
-\subsubsection*{Insights – Performance Evaluation}
+\subsubsection*{Insights - Performance Evaluation}
 \begin{itemize}
 	\item \textbf{Overall accuracy trend:}
 	      \begin{itemize}
 		      \item Rises steadily from \textbf{74\%} (40/60) → \textbf{77\%} (60/40) → \textbf{78\%} (80/20) → \textbf{79\%} (90/10).
 		      \item Larger training sets consistently improve generalization.
 	      \end{itemize}
-	\item \textbf{Class‑level performance:}
+	\item \textbf{Class-level performance:}
 	      \begin{itemize}
 		      \item \emph{Standard (majority) class:}
 		            \begin{itemize}
 			            \item Precision/recall \(\approx0.83\) at 40/60, rising to \(approx0.87\) at 90/10.
-			            \item High support (2,193→366) yields consistently strong F1‑scores (0.83 → 0.86).
+			            \item High support (2,193→366) yields consistently strong F1-scores (0.83 → 0.86).
 		            \end{itemize}
 		      \item \emph{High quality:}
 		            \begin{itemize}
@@ -510,8 +509,8 @@ def train_evaluate_decision_tree(
 	      \end{itemize}
 	\item \textbf{Macro vs.\ weighted averages:}
 	      \begin{itemize}
-		      \item Macro‑avg F1 climbs from 0.52 → 0.62, reflecting improvement on minority classes.
-		      \item Weighted‑avg F1 follows overall accuracy closely (0.74 → 0.79).
+		      \item Macro-avg F1 climbs from 0.52 → 0.62, reflecting improvement on minority classes.
+		      \item Weighted-avg F1 follows overall accuracy closely (0.74 → 0.79).
 	      \end{itemize}
 	\item \textbf{Class imbalance impact:}
 	      The dominant “Standard” category (\(\approx70\%\) of samples) drives overall accuracy; minority classes require targeted strategies (e.g.\ class weighting) for balanced performance.
@@ -574,24 +573,24 @@ def train_evaluate_decision_tree(
 	\end{subfigure}
 \end{figure}
 
-\subsubsection*{Insights – Depth and Accuracy}
+\subsubsection*{Insights - Depth and Accuracy}
 \begin{itemize}
 	\item \textbf{Underfitting at low depth:}
 	      \texttt{max\_depth}=2 yields only \textbf{74.6\%} accuracy, failing to capture interactions among acidity, alcohol, and sulphates.
 	\item \textbf{Steady gains with depth:}
 	      \begin{itemize}
-		      \item Depth 3 → \textbf{76.0\%} (+1.5 pp),
-		      \item Depth 4 → \textbf{77.0\%} (+1.1 pp),
-		      \item Depth 5 → \textbf{78.2\%} (+0.9 pp).
-		      \item Depth 6 → \textbf{78.7\%} (+0.6 pp),
-		      \item Depth 7 → \textbf{78.8\%} (+0.1 pp).
+		      \item Depth 3 → \textbf{76.0\%} (+1.5 pp),
+		      \item Depth 4 → \textbf{77.0\%} (+1.1 pp),
+		      \item Depth 5 → \textbf{78.2\%} (+0.9 pp).
+		      \item Depth 6 → \textbf{78.7\%} (+0.6 pp),
+		      \item Depth 7 → \textbf{78.8\%} (+0.1 pp).
 	      \end{itemize}
 	\item \textbf{Unrestricted tree underperforms:}
-	      The fully grown tree (None) reaches \textbf{77.6\%}, below depth 7, indicating pruning aids generalization.
+	      The fully grown tree (None) reaches \textbf{77.6\%}, below depth 7, indicating pruning aids generalization.
 	\item \textbf{Optimal depth range:}
-	      Depth 5–7 balances complexity and predictive power; marginal gains beyond depth 6 suggest diminishing returns.
+	      Depth 5-7 balances complexity and predictive power; marginal gains beyond depth 6 suggest diminishing returns.
 	\item \textbf{Practical recommendation:}
-	      For multi‑class wine quality prediction, set \texttt{max\_depth} around \textbf{6} to maximize test accuracy while keeping the tree interpretable.
+	      For multi-class wine quality prediction, set \texttt{max\_depth} around \textbf{6} to maximize test accuracy while keeping the tree interpretable.
 \end{itemize}
 
 
@@ -724,7 +723,7 @@ def train_evaluate_decision_tree(
 	\caption{Classification Report and Confusion Matrix (90/10 split)}\label{fig:ce-eval-90-10}
 \end{figure}
 
-\subsubsection*{Insights – Performance Evaluation}
+\subsubsection*{Insights - Performance Evaluation}
 \begin{itemize}
 	\item \textbf{Accuracy by split ratio:}
 	      \begin{itemize}
@@ -734,21 +733,21 @@ def train_evaluate_decision_tree(
 		      \item 90/10 split: \textbf{99\%}
 	      \end{itemize}
 	      Accuracy rises sharply as the training set grows, peaking at 99\% when \(\geq80\%\) of data is used for training.
-	\item \textbf{Class‑level performance:}
+	\item \textbf{Class-level performance:}
 	      \begin{itemize}
-		      \item \emph{unacc (majority):} Precision and recall \(\geq98\%\) across all splits, reflecting the model’s ease in identifying unacceptable cars.
+		      \item \emph{unacc (majority):} Precision and recall \(\geq98\%\) across all splits, reflecting the model's ease in identifying unacceptable cars.
 		      \item \emph{acc:} Precision climbs from 88\% → 99\%, recall from 91\% → 100\% as training size increases, showing strong learning of the “acceptable” class.
 		      \item \emph{good:}
 		            \begin{itemize}
-			            \item 40/60 split: Precision 71\%, Recall 59\% (support 41)
-			            \item 60/40 split: Precision 96\%, Recall 89\% (support 28)
-			            \item 80/20 split: Precision 88\%, Recall 100\% (support 14)
+			            \item 40/60 split: Precision 71\%, Recall 59\% (support 41)
+			            \item 60/40 split: Precision 96\%, Recall 89\% (support 28)
+			            \item 80/20 split: Precision 88\%, Recall 100\% (support 14)
 		            \end{itemize}
 		            Smaller support for “good” leads to greater variance in its metrics.
 
 		      \item \emph{vgood (minority):}
 		            \begin{itemize}
-			            \item Precision: 85–100\%
+			            \item Precision: 85-100\%
 			            \item Recall by split:
 			                  \begin{itemize}
 				                  \item 40/60: 74\%
@@ -757,13 +756,13 @@ def train_evaluate_decision_tree(
 				                  \item 90/10: 86\%
 			                  \end{itemize}
 		            \end{itemize}
-		            The recall swings reflect the model’s difficulty detecting very‐good cars when examples are scarce.
+		            The recall swings reflect the model's difficulty detecting very‐good cars when examples are scarce.
 
 	      \end{itemize}
 	\item \textbf{Macro vs.\ weighted F1:}
 	      \begin{itemize}
-		      \item Macro‑avg F1 improves from 83\% (40/60) → 96\% (60/40) → 97\% (80/20) → 96\% (90/10).
-		      \item Weighted‑avg F1 mirrors accuracy (94–99\%), driven by the dominant “unacc” class.
+		      \item Macro-avg F1 improves from 83\% (40/60) → 96\% (60/40) → 97\% (80/20) → 96\% (90/10).
+		      \item Weighted-avg F1 mirrors accuracy (94-99\%), driven by the dominant “unacc” class.
 	      \end{itemize}
 	\item \textbf{Class imbalance impact:} The “unacc” class (\(\approx70\%\) of samples) drives most of the overall accuracy. Minority classes (“good”, “vgood”) benefit greatly from more training data.
 \end{itemize}
@@ -825,7 +824,7 @@ def train_evaluate_decision_tree(
 	\end{subfigure}
 \end{figure}
 
-\subsubsection*{Insights – Depth and Accuracy}
+\subsubsection*{Insights - Depth and Accuracy}
 \begin{itemize}
 	\item \textbf{Underfitting at shallow depths:}
 	      \begin{itemize}
@@ -833,18 +832,18 @@ def train_evaluate_decision_tree(
 		      \item \texttt{max\_depth}=3: \textbf{80.6\%}
 		      \item \texttt{max\_depth}=4: \textbf{79.8\%}
 	      \end{itemize}
-	      Very low depths cannot capture the multi‑attribute categorical splits.
+	      Very low depths cannot capture the multi-attribute categorical splits.
 	\item \textbf{Rapid gains with moderate depth:}
 	      \begin{itemize}
-		      \item Depth 5: \textbf{87.0\%} (+8.2 pp over depth 4)
-		      \item Depth 6: \textbf{86.7\%}
-		      \item Depth 7: \textbf{93.4\%} (+6.7 pp over depth 6)
+		      \item Depth 5: \textbf{87.0\%} (+8.2 pp over depth 4)
+		      \item Depth 6: \textbf{86.7\%}
+		      \item Depth 7: \textbf{93.4\%} (+6.7 pp over depth 6)
 	      \end{itemize}
 	      Indicates that deeper trees are needed to model complex combinations of the six categorical features.
 	\item \textbf{Unrestricted tree (None):} \textbf{99.1\%}—the highest accuracy, achieving nearly perfect classification by fully expanding on all splits.
 	\item \textbf{Interpretability vs.\ performance:}
 	      \begin{itemize}
-		      \item Limiting to depth 7 yields 93.4\% accuracy with a still‑manageable tree size.
+		      \item Limiting to depth 7 yields 93.4\% accuracy with a still-manageable tree size.
 		      \item Allowing no limit pushes accuracy to 99.1\% at the cost of a very large, less interpretable tree.
 	      \end{itemize}
 	\item \textbf{Recommendation:}

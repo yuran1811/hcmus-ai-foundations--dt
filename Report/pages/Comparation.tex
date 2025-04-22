@@ -20,41 +20,41 @@ After evaluating decision tree performance on all three datasets, we examine how
 	\item \textbf{Binary vs.\ multi-class:}
 	      The binary Breast Cancer dataset achieved the highest accuracy (94.74\%); only two labels result in simpler decision boundaries.
 	\item \textbf{Three classes (Wine Quality):}
-	      Introducing “Low,” “Standard,” and “High” quality classes reduced peak accuracy by \(\approx16\) pp compared to binary, due to overlapping physicochemical profiles.
+	      Introducing “Low,” “Standard,” and “High” quality classes reduced peak accuracy by \(\approx16\) pp compared to binary, due to overlapping physicochemical profiles.
 	\item \textbf{Four classes (Car Evaluation):}
 	      Despite four target categories, Car Evaluation attained 99.13\% because its categorical attributes produce very clear splits for each class.
 	\item \textbf{Lesson:}
-	      Accuracy generally decreases as class count increases, but well–separable features can offset this effect.
+	      Accuracy generally decreases as class count increases, but well-separable features can offset this effect.
 \end{itemize}
 
 \subsection{Impact of Number of Features}
 \begin{itemize}
 	\item \textbf{High dimensionality (30 features):}
-	      Breast Cancer’s 30 numeric features provided rich discriminative power; however, deeper trees began to overfit on less informative dimensions.
+	      Breast Cancer's 30 numeric features provided rich discriminative power; however, deeper trees began to overfit on less informative dimensions.
 	\item \textbf{Medium dimensionality (11 features):}
-	      Wine Quality’s 11 continuous features sufficed to reach $\sim$79\% accuracy but required deeper trees (depth 7) to capture complex interactions (e.g.\ acidity vs.\ alcohol).
+	      Wine Quality's 11 continuous features sufficed to reach $\sim$79\% accuracy but required deeper trees (depth 7) to capture complex interactions (e.g.\ acidity vs.\ alcohol).
 	\item \textbf{Low dimensionality (6 features):}
-	      Car Evaluation’s six categorical attributes yielded \(>99\%\) accuracy, showing that a small number of highly informative categorical features can outperform larger numeric feature sets.
+	      Car Evaluation's six categorical attributes yielded \(>99\%\) accuracy, showing that a small number of highly informative categorical features can outperform larger numeric feature sets.
 	\item \textbf{Lesson:}
-	      More features improve performance only if they carry meaningful signal; high‑level categorical features may be more effective than many noisy numeric ones.
+	      More features improve performance only if they carry meaningful signal; high-level categorical features may be more effective than many noisy numeric ones.
 \end{itemize}
 
 \subsection{Impact of Sample Size}
 \begin{itemize}
 	\item \textbf{Small sample (569):}
-	      Breast Cancer’s smaller size produced high variance at extreme splits (e.g.\ 90/10), but stratified sampling kept accuracy within 2–3 pp across ratios.
+	      Breast Cancer's smaller size produced high variance at extreme splits (e.g.\ 90/10), but stratified sampling kept accuracy within 2-3 pp across ratios.
 	\item \textbf{Large sample (4,898):}
-	      Wine Quality’s larger sample stabilized performance: accuracy varied by only ~5 pp between smallest and largest training sets.
+	      Wine Quality's larger sample stabilized performance: accuracy varied by only $\sim$5 pp between smallest and largest training sets.
 	\item \textbf{Medium sample (1,728):}
-	      Car Evaluation sat between the two: accuracy varied <5 pp across splits, indicating diminishing returns once a “critical mass” of examples is reached.
+	      Car Evaluation sat between the two: accuracy varied \(<5\) pp across splits, indicating diminishing returns once a “critical mass” of examples is reached.
 	\item \textbf{Lesson:}
 	      Larger sample sizes increase metric stability and reduce sensitivity to train/test ratio, but only until class overlap—not data scarcity—becomes the limiting factor.
 \end{itemize}
 
 \subsection{Overall Recommendations}
 \begin{itemize}
-	\item For \textbf{binary problems} with many numeric features, limit tree depth to 3–4 to maximize generalization and interpretability.
+	\item For \textbf{binary problems} with many numeric features, limit tree depth to 3-4 to maximize generalization and interpretability.
 	\item For \textbf{multi-class problems}, ensure features are well separated or apply feature engineering before using deep trees.
 	\item When using \textbf{categorical features}, even low-dimensional datasets can achieve high accuracy with moderate depth.
-	\item Always \textbf{tune \texttt{max\_depth}} via cross-validation: our experiments found optimal depths of 3 (Breast Cancer), 7 (Wine Quality), and unlimited (Car Evaluation), balancing bias–variance and model complexity.
+	\item Always \textbf{tune \texttt{max\_depth}} via cross-validation: our experiments found optimal depths of 3 (Breast Cancer), 7 (Wine Quality), and unlimited (Car Evaluation), balancing bias-variance and model complexity.
 \end{itemize}
