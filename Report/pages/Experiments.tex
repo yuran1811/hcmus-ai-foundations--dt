@@ -109,28 +109,28 @@ def train_evaluate_decision_tree(
 	\caption{Class distributions}\label{fig:bc-cd-all}
 \end{figure}
 
-\clearpage
-\subsubsection*{Building Decision Tree Classifiers for each train/test proportions}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__breast_cancer__40_vs_60.png}
-	\caption{Breast Cancer: decision tree for 40/60 split.}\label{fig:bc-dt-40-60}
-\end{figure}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__breast_cancer__60_vs_40.png}
-	\caption{Breast Cancer: decision tree for 60/40 split.}\label{fig:bc-dt-60-40}
-\end{figure}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__breast_cancer__80_vs_20.png}
-	\caption{Breast Cancer: decision tree for 80/20 split.}\label{fig:bc-dt-80-20}
-\end{figure}
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__breast_cancer__90_vs_10.png}
-	\caption{Breast Cancer: decision tree for 90/10 split.}\label{fig:bc-dt-90-10}
-\end{figure}
+% \clearpage
+% \subsubsection*{Building Decision Tree Classifiers for each train/test proportions}
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__breast_cancer__40_vs_60.png}
+% 	\caption{Breast Cancer: decision tree for 40/60 split.}\label{fig:bc-dt-40-60}
+% \end{figure}
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__breast_cancer__60_vs_40.png}
+% 	\caption{Breast Cancer: decision tree for 60/40 split.}\label{fig:bc-dt-60-40}
+% \end{figure}
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__breast_cancer__80_vs_20.png}
+% 	\caption{Breast Cancer: decision tree for 80/20 split.}\label{fig:bc-dt-80-20}
+% \end{figure}
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__breast_cancer__90_vs_10.png}
+% 	\caption{Breast Cancer: decision tree for 90/10 split.}\label{fig:bc-dt-90-10}
+% \end{figure}
 
 \clearpage
 \subsubsection*{Evaluating the decision tree classifiers}
@@ -277,80 +277,176 @@ def train_evaluate_decision_tree(
 %================ Wine Quality =================%
 \clearpage
 \subsection{Wine Quality Dataset}
+\subsubsection*{Dataset Description}
 \begin{itemize}
-	\item \textbf{Description:} 4,898 samples; original scores 0–10 grouped into Low (0–4), Standard (5–6), High (7–10).
-	\item \textbf{Preprocessing:} label encoding, stratified splits at 40/60, 60/40, 80/20, 90/10.
+	\item \textbf{Description:} The UCI Wine Quality dataset is used for classifying wine samples into quality levels based on physicochemical properties such as acidity, alcohol content, etc.
+	\item \textbf{Dataset Info:} 4898 samples, with labels from 0 (low quality) to 10 (high quality).
+	\item \textbf{Preprocessing:} shuffle \& stratified split at 40/60, 60/40, 80/20, 90/10.
 \end{itemize}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{imgs/class_dist/class_dist__wine_quality__40_vs_60.png}
-	\caption{Wine Quality: class distribution (40/60 split).}\label{fig:wq-cd-40-60}
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/class_dist/class_dist__wine_quality__40_vs_60.png}
+		\caption{Wine Quality: class distribution (40/60 split).}\label{fig:wq-cd-40-60}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/class_dist/class_dist__wine_quality__60_vs_40.png}
+		\caption{Wine Quality: class distribution (60/40 split).}\label{fig:wq-cd-60-40}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/class_dist/class_dist__wine_quality__80_vs_20.png}
+		\caption{Wine Quality: class distribution (80/20 split).}\label{fig:wq-cd-80-20}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/class_dist/class_dist__wine_quality__90_vs_10.png}
+		\caption{Wine Quality: class distribution (90/10 split).}\label{fig:wq-cd-90-10}
+	\end{subfigure}
+
+	\caption{Class distributions}\label{fig:wq-cd-all}
 \end{figure}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.6\textwidth]{imgs/class_dist/class_dist__wine_quality__60_vs_40.png}
-	\caption{Wine Quality: class distribution (60/40 split).}\label{fig:wq-cd-60-40}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.6\textwidth]{imgs/class_dist/class_dist__wine_quality__80_vs_20.png}
-	\caption{Wine Quality: class distribution (80/20 split).}\label{fig:wq-cd-80-20}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.6\textwidth]{imgs/class_dist/class_dist__wine_quality__90_vs_10.png}
-	\caption{Wine Quality: class distribution (90/10 split).}\label{fig:wq-cd-90-10}
-\end{figure}
-
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.6\textwidth]{imgs/confusion_mat/confusion_mat__wine_quality__80_vs_20.png}
-	\caption{Wine Quality: confusion matrix (80/20 split).}\label{fig:wq-cm-80-20}
-\end{figure}
-
+% \clearpage
+% \subsubsection*{Building Decision Tree Classifiers for each train/test proportions}
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[width=0.8\textwidth]{imgs/dt-mini/dt__wine_quality__40_vs_60.png}
+% 	\caption{Wine Quality: decision tree for 40/60 split.}\label{fig:wq-dt-40-60}
+% \end{figure}
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[width=0.8\textwidth]{imgs/dt-mini/dt__wine_quality__60_vs_40.png}
+% 	\caption{Wine Quality: decision tree for 60/40 split.}\label{fig:wq-dt-60-40}
+% \end{figure}
 % \begin{figure}[H]
 % 	\centering
 % 	\includegraphics[width=0.8\textwidth]{imgs/dt-mini/dt__wine_quality__80_vs_20.png}
-% 	\caption{Wine Quality: decision tree (base) for 80/20 split.}\label{fig:wq-dt-base}
+% 	\caption{Wine Quality: decision tree for 80/20 split.}\label{fig:wq-dt-80-20}
+% \end{figure}
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[width=0.8\textwidth]{imgs/dt-mini/dt__wine_quality__90_vs_10.png}
+% 	\caption{Wine Quality: decision tree for 90/10 split.}\label{fig:wq-dt-90-10}
 % \end{figure}
 
+\clearpage
+\subsubsection*{Evaluating the decision tree classifiers}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{imgs/dt-mini/dt__wine_quality__80_vs_20__2.png}
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/confusion_mat/confusion_mat__wine_quality__40_vs_60.png}
+		\caption{Wine Quality: confusion matrix (40/60 split).}\label{fig:wq-cm-40-60}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/confusion_mat/class_rp__wine_quality__40_vs_60.png}
+		\caption{Wine Quality: Classification Report (40/60 split).}\label{fig:wq-cr-40-60}
+	\end{subfigure}
+
+	\caption{Classification Report and Confusion Matrix (40/60 split)}\label{fig:wq-eval-40-60}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/confusion_mat/confusion_mat__wine_quality__60_vs_40.png}
+		\caption{Wine Quality: confusion matrix (60/40 split).}\label{fig:wq-cm-60-40}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/confusion_mat/class_rp__wine_quality__60_vs_40.png}
+		\caption{Wine Quality: Classification Report (60/40 split).}\label{fig:wq-cr-60-40}
+	\end{subfigure}
+
+	\caption{Classification Report and Confusion Matrix (60/40 split)}\label{fig:wq-eval-60-40}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/confusion_mat/confusion_mat__wine_quality__80_vs_20.png}
+		\caption{Wine Quality: confusion matrix (80/20 split).}\label{fig:wq-cm-80-20}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/confusion_mat/class_rp__wine_quality__80_vs_20.png}
+		\caption{Wine Quality: Classification Report (80/20 split).}\label{fig:wq-cr-80-20}
+	\end{subfigure}
+
+	\caption{Classification Report and Confusion Matrix (80/20 split)}\label{fig:wq-eval-80-20}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/confusion_mat/confusion_mat__wine_quality__90_vs_10.png}
+		\caption{Wine Quality: confusion matrix (90/10 split).}\label{fig:wq-cm-90-10}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/confusion_mat/class_rp__wine_quality__90_vs_10.png}
+		\caption{Wine Quality: Classification Report (90/10 split).}\label{fig:wq-cr-90-10}
+	\end{subfigure}
+
+	\caption{Classification Report and Confusion Matrix (90/10 split)}\label{fig:wq-eval-90-10}
+\end{figure}
+\begin{flushleft}
+	Insights into performance of these decision tree classifiers:
+	\begin{itemize}
+		\item sth
+		      \begin{itemize}
+			      \item sth
+		      \end{itemize}
+	\end{itemize}
+\end{flushleft}
+
+\clearpage
+\subsubsection*{Decision Tree Classifier with Different Depths}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__wine_quality__80_vs_20__2.png}
 	\caption{Wine Quality: decision tree with \texttt{max\_depth}=2 (80/20 split).}\label{fig:wq-dt-depth-2}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{imgs/dt-mini/dt__wine_quality__80_vs_20__3.png}
+	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__wine_quality__80_vs_20__3.png}
 	\caption{Wine Quality: decision tree with \texttt{max\_depth}=3 (80/20 split).}\label{fig:wq-dt-depth-3}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{imgs/dt-mini/dt__wine_quality__80_vs_20__4.png}
+	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__wine_quality__80_vs_20__4.png}
 	\caption{Wine Quality: decision tree with \texttt{max\_depth}=4 (80/20 split).}\label{fig:wq-dt-depth-4}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{imgs/dt-mini/dt__wine_quality__80_vs_20__5.png}
+	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__wine_quality__80_vs_20__5.png}
 	\caption{Wine Quality: decision tree with \texttt{max\_depth}=5 (80/20 split).}\label{fig:wq-dt-depth-5}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{imgs/dt-mini/dt__wine_quality__80_vs_20__6.png}
+	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__wine_quality__80_vs_20__6.png}
 	\caption{Wine Quality: decision tree with \texttt{max\_depth}=6 (80/20 split).}\label{fig:wq-dt-depth-6}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{imgs/dt-mini/dt__wine_quality__80_vs_20__7.png}
+	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__wine_quality__80_vs_20__7.png}
 	\caption{Wine Quality: decision tree with \texttt{max\_depth}=7 (80/20 split).}\label{fig:wq-dt-depth-7}
 \end{figure}
 
@@ -360,88 +456,228 @@ def train_evaluate_decision_tree(
 % 	\caption{Wine Quality: decision tree with \texttt{max\_depth}=None (80/20 split).}\label{fig:wq-dt-depth-none}
 % \end{figure}
 
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/accuracy_vs_depth_wine_quality.png}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/accuracy_vs_depth_wine_quality__analysis.png}
+	\end{subfigure}
+\end{figure}
+
+\clearpage
+\subsubsection*{Insights}
+\begin{itemize}
+	\item sth
+	      \begin{itemize}
+		      \item sth
+	      \end{itemize}
+\end{itemize}
+
 %================ Car Evaluation =================%
 \clearpage
 \subsection{Car Evaluation Dataset}
+\subsubsection*{Dataset Description}
 \begin{itemize}
-	\item \textbf{Description:} 1,728 samples; 4 classes (\texttt{unacc}, \texttt{acc}, \texttt{good}, \texttt{vgood}), 6 categorical features.
-	\item \textbf{Preprocessing:} label encoding, stratified splits at 40/60, 60/40, 80/20, 90/10.
+	\item \textbf{Description:} The UCI Breast Cancer Wisconsin (Diagnostic) dataset is used for classifying tumors as malignant or benign based on features derived from its imaging data.
+	\item \textbf{Dataset Info:} 569 samples, binary labels (malignant vs.\ benign), 30 numeric features.
+	\item \textbf{Preprocessing:} shuffle \& stratified split at 40/60, 60/40, 80/20, 90/10.
 \end{itemize}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{imgs/class_dist/class_dist__car_evaluation__40_vs_60.png}
-	\caption{Car Evaluation: class distribution (40/60 split).}\label{fig:ce-cd-40-60}
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/class_dist/class_dist__car_evaluation__40_vs_60.png}
+		\caption{Car Evaluation: class distribution (40/60 split).}\label{fig:ce-cd-40-60}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/class_dist/class_dist__car_evaluation__60_vs_40.png}
+		\caption{Car Evaluation: class distribution (60/40 split).}\label{fig:ce-cd-60-40}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/class_dist/class_dist__car_evaluation__80_vs_20.png}
+		\caption{Car Evaluation: class distribution (80/20 split).}\label{fig:ce-cd-80-20}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/class_dist/class_dist__car_evaluation__90_vs_10.png}
+		\caption{Car Evaluation: class distribution (90/10 split).}\label{fig:ce-cd-90-10}
+	\end{subfigure}
+
+	\caption{Class distributions}\label{fig:ce-cd-all}
 \end{figure}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.6\textwidth]{imgs/class_dist/class_dist__car_evaluation__60_vs_40.png}
-	\caption{Car Evaluation: class distribution (60/40 split).}\label{fig:ce-cd-60-40}
-\end{figure}
+% \clearpage
+% \subsubsection*{Building Decision Tree Classifiers for each train/test proportions}
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__car_evaluation__40_vs_60.png}
+% 	\caption{Car Evaluation: decision tree for 40/60 split.}\label{fig:ce-dt-40-60}
+% \end{figure}
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__car_evaluation__60_vs_40.png}
+% 	\caption{Car Evaluation: decision tree for 60/40 split.}\label{fig:ce-dt-60-40}
+% \end{figure}
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__car_evaluation__80_vs_20.png}
+% 	\caption{Car Evaluation: decision tree for 80/20 split.}\label{fig:ce-dt-80-20}
+% \end{figure}
+% \begin{figure}[H]
+% 	\centering
+% 	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__car_evaluation__90_vs_10.png}
+% 	\caption{Car Evaluation: decision tree for 90/10 split.}\label{fig:ce-dt-90-10}
+% \end{figure}
 
+\clearpage
+\subsubsection*{Evaluating the decision tree classifiers}
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{imgs/class_dist/class_dist__car_evaluation__80_vs_20.png}
-	\caption{Car Evaluation: class distribution (80/20 split).}\label{fig:ce-cd-80-20}
-\end{figure}
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/confusion_mat/confusion_mat__car_evaluation__40_vs_60.png}
+		\caption{Car Evaluation: confusion matrix (40/60 split).}\label{fig:ce-cm-40-60}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/confusion_mat/class_rp__car_evaluation__40_vs_60.png}
+		\caption{Car Evaluation: Classification Report (40/60 split).}\label{fig:ce-cr-40-60}
+	\end{subfigure}
 
-\begin{figure}[H]
-	\centering
-	\includegraphics[width=0.6\textwidth]{imgs/class_dist/class_dist__car_evaluation__90_vs_10.png}
-	\caption{Car Evaluation: class distribution (90/10 split).}\label{fig:ce-cd-90-10}
+	\caption{Classification Report and Confusion Matrix (40/60 split)}\label{fig:ce-eval-40-60}
 \end{figure}
-
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.6\textwidth]{imgs/confusion_mat/confusion_mat__car_evaluation__80_vs_20.png}
-	\caption{Car Evaluation: confusion matrix (80/20 split).}\label{fig:ce-cm-80-20}
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/confusion_mat/confusion_mat__car_evaluation__60_vs_40.png}
+		\caption{Car Evaluation: confusion matrix (60/40 split).}\label{fig:ce-cm-60-40}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/confusion_mat/class_rp__car_evaluation__60_vs_40.png}
+		\caption{Car Evaluation: Classification Report (60/40 split).}\label{fig:ce-cr-60-40}
+	\end{subfigure}
+
+	\caption{Classification Report and Confusion Matrix (60/40 split)}\label{fig:ce-eval-60-40}
 \end{figure}
-
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{imgs/dt-mini/dt__car_evaluation__80_vs_20.png}
-	\caption{Car Evaluation: decision tree (base) for 80/20 split.}\label{fig:ce-dt-base}
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/confusion_mat/confusion_mat__car_evaluation__80_vs_20.png}
+		\caption{Car Evaluation: confusion matrix (80/20 split).}\label{fig:ce-cm-80-20}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/confusion_mat/class_rp__car_evaluation__80_vs_20.png}
+		\caption{Car Evaluation: Classification Report (80/20 split).}\label{fig:ce-cr-80-20}
+	\end{subfigure}
+
+	\caption{Classification Report and Confusion Matrix (80/20 split)}\label{fig:ce-eval-80-20}
 \end{figure}
-
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{imgs/dt-mini/dt__car_evaluation__80_vs_20__2.png}
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/confusion_mat/confusion_mat__car_evaluation__90_vs_10.png}
+		\caption{Car Evaluation: confusion matrix (90/10 split).}\label{fig:ce-cm-90-10}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/confusion_mat/class_rp__car_evaluation__90_vs_10.png}
+		\caption{Car Evaluation: Classification Report (90/10 split).}\label{fig:ce-cr-90-10}
+	\end{subfigure}
+
+	\caption{Classification Report and Confusion Matrix (90/10 split)}\label{fig:ce-eval-90-10}
+\end{figure}
+\begin{flushleft}
+	Insights into performance of these decision tree classifiers:
+	\begin{itemize}
+		\item sth
+		      \begin{itemize}
+			      \item sth
+		      \end{itemize}
+	\end{itemize}
+\end{flushleft}
+
+\clearpage
+\subsubsection*{Decision Tree Classifier with Different Depths}
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__car_evaluation__80_vs_20__2.png}
 	\caption{Car Evaluation: decision tree with \texttt{max\_depth}=2 (80/20 split).}\label{fig:ce-dt-depth-2}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{imgs/dt-mini/dt__car_evaluation__80_vs_20__3.png}
+	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__car_evaluation__80_vs_20__3.png}
 	\caption{Car Evaluation: decision tree with \texttt{max\_depth}=3 (80/20 split).}\label{fig:ce-dt-depth-3}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{imgs/dt-mini/dt__car_evaluation__80_vs_20__4.png}
+	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__car_evaluation__80_vs_20__4.png}
 	\caption{Car Evaluation: decision tree with \texttt{max\_depth}=4 (80/20 split).}\label{fig:ce-dt-depth-4}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{imgs/dt-mini/dt__car_evaluation__80_vs_20__5.png}
+	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__car_evaluation__80_vs_20__5.png}
 	\caption{Car Evaluation: decision tree with \texttt{max\_depth}=5 (80/20 split).}\label{fig:ce-dt-depth-5}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{imgs/dt-mini/dt__car_evaluation__80_vs_20__6.png}
+	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__car_evaluation__80_vs_20__6.png}
 	\caption{Car Evaluation: decision tree with \texttt{max\_depth}=6 (80/20 split).}\label{fig:ce-dt-depth-6}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{imgs/dt-mini/dt__car_evaluation__80_vs_20__7.png}
+	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__car_evaluation__80_vs_20__7.png}
 	\caption{Car Evaluation: decision tree with \texttt{max\_depth}=7 (80/20 split).}\label{fig:ce-dt-depth-7}
 \end{figure}
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=0.8\textwidth]{imgs/dt-mini/dt__car_evaluation__80_vs_20__None.png}
+	\includegraphics[width=0.65\textwidth]{imgs/dt-mini/dt__car_evaluation__80_vs_20__None.png}
 	\caption{Car Evaluation: decision tree with \texttt{max\_depth}=None (80/20 split).}\label{fig:ce-dt-depth-none}
 \end{figure}
+
+\begin{figure}[H]
+	\centering
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/accuracy_vs_depth_car_evaluation.png}
+	\end{subfigure}
+	\hfill
+	\begin{subfigure}{0.45\textwidth}
+		\centering
+		\includegraphics[width=\textwidth]{imgs/accuracy_vs_depth_car_evaluation__analysis.png}
+	\end{subfigure}
+\end{figure}
+
+\clearpage
+\subsubsection*{Insights}
+\begin{itemize}
+	\item sth
+	      \begin{itemize}
+		      \item sth
+	      \end{itemize}
+\end{itemize}
