@@ -70,6 +70,52 @@ def train_evaluate_decision_tree(
 	\end{itemize}
 \end{flushleft}
 
+\subsection{Classification Report and Confusion Matrix Interpretion}
+\begin{flushleft}
+	\begin{itemize}
+		\item The classification report summarizes, for each class \(c\):
+		      \begin{itemize}
+			      \item \textbf{Precision} (\(\mathrm{Prec}_c\)): measures the fraction of samples predicted as \(c\) that truly belong to \(c\).
+			      \item \textbf{Recall} (\(\mathrm{Rec}_c\)): measures the fraction of true-\(c\) samples correctly identified.
+			      \item \textbf{F1‑score} (\(\mathrm{F1}_c\)): the harmonic mean of precision and recall
+			      \item \textbf{Support}: the number of true samples of class \(c\).
+		      \end{itemize}
+		\item For example, with a binary problem (classes “positive”/“negative”), the confusion matrix is:
+		      \begin{flushleft}
+			      \[
+				      \mathbf{CM} =
+				      \begin{pmatrix}
+					      \mathrm{TN} & \mathrm{FP} \\
+					      \mathrm{FN} & \mathrm{TP}
+				      \end{pmatrix},
+			      \]
+			      where
+			      \begin{description}
+				      \item[\(\mathrm{TN}\) (True Negative):] correctly predicted negatives.
+				      \item[\(\mathrm{FP}\) (False Positive, Type I error):] negatives incorrectly predicted as positives.
+				      \item[\(\mathrm{FN}\) (False Negative, Type II error):] positives incorrectly predicted as negatives.
+				      \item[\(\mathrm{TP}\) (True Positive):] correctly predicted positives.
+			      \end{description}
+			      \noindent From these entries we derive:
+			      \begin{align*}
+				      \text{Accuracy}                  & = \frac{\mathrm{TP} + \mathrm{TN}}{\mathrm{TP} + \mathrm{TN} + \mathrm{FP} + \mathrm{FN}}, \\
+				      \text{False Positive Rate (FPR)} & = \frac{\mathrm{FP}}{\mathrm{FP} + \mathrm{TN}},                                           \\
+				      \text{False Negative Rate (FNR)} & = \frac{\mathrm{FN}}{\mathrm{FN} + \mathrm{TP}}
+			      \end{align*}
+			      \begin{align*}
+				      \text{Specificity (True Negative Rate)} & = \frac{\mathrm{TN}}{\mathrm{TN} + \mathrm{FP}}, \\
+				      \text{Precision}                        & = \frac{\mathrm{TP}}{\mathrm{TP} + \mathrm{FP}}, \\
+				      \text{Recall (Sensitivity)}             & = \frac{\mathrm{TP}}{\mathrm{TP} + \mathrm{FN}}
+			      \end{align*}
+			      \noindent A well‐performing classifier exhibits high \(\mathrm{TP}\) and \(\mathrm{TN}\), and low \(\mathrm{FP}\) and \(\mathrm{FN}\).
+			      \begin{itemize}
+				      \item \emph{High FP} indicates many false alarms.
+				      \item \emph{High FN} indicates many misses—critical in domains such as medical diagnosis.
+			      \end{itemize}
+		      \end{flushleft}
+	\end{itemize}
+\end{flushleft}
+
 %================ Breast Cancer =================%
 \clearpage
 \subsection{Breast Cancer Wisconsin Dataset}
@@ -265,7 +311,6 @@ def train_evaluate_decision_tree(
 	\end{subfigure}
 \end{figure}
 
-\clearpage
 \subsubsection*{Insights}
 \begin{itemize}
 	\item sth
@@ -469,7 +514,6 @@ def train_evaluate_decision_tree(
 	\end{subfigure}
 \end{figure}
 
-\clearpage
 \subsubsection*{Insights}
 \begin{itemize}
 	\item sth
@@ -483,8 +527,8 @@ def train_evaluate_decision_tree(
 \subsection{Car Evaluation Dataset}
 \subsubsection*{Dataset Description}
 \begin{itemize}
-	\item \textbf{Description:} The UCI Breast Cancer Wisconsin (Diagnostic) dataset is used for classifying tumors as malignant or benign based on features derived from its imaging data.
-	\item \textbf{Dataset Info:} 569 samples, binary labels (malignant vs.\ benign), 30 numeric features.
+	\item \textbf{Description:} Car Evaluation Database was derived from a simple hierarchical decision model originally developed for the demonstration of DEX, M. Bohanec, V. Rajkovic: Expert system for decision making.
+	\item \textbf{Dataset Info:} 1728 samples, 4 classes (unacc, acc, good, vgood), 6 categorical attributes (buying price, maintenance cost, doors, etc.).
 	\item \textbf{Preprocessing:} shuffle \& stratified split at 40/60, 60/40, 80/20, 90/10.
 \end{itemize}
 
@@ -673,7 +717,6 @@ def train_evaluate_decision_tree(
 	\end{subfigure}
 \end{figure}
 
-\clearpage
 \subsubsection*{Insights}
 \begin{itemize}
 	\item sth
